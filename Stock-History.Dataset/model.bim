@@ -876,13 +876,13 @@
           },
           {
             "name": "Selected Date Min",
-            "expression": "MIN(d_calendar[Data])",
+            "expression": "MIN(d_calendar[Date])",
             "formatString": "General Date",
             "lineageTag": "5aa5f6d0-1e02-4fcd-ba77-7655db26b34d"
           },
           {
             "name": "Selected Date Max",
-            "expression": "MAX(d_calendar[Data])",
+            "expression": "MAX(d_calendar[Date])",
             "formatString": "General Date",
             "lineageTag": "982d8333-fb57-4781-be30-f65559b9dfc3"
           },

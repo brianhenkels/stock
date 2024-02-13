@@ -5,15 +5,16 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 23.203390807230097
+        "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 8.1970757300978221,
-            "y": 1100.2115110141308
+            "x": 16.477141116778341,
+            "y": 606.62636034004913
           },
           "nodeIndex": "RefreshDate",
+          "nodeLineageTag": "0fa3c0c2-848a-4f93-998b-b4453e93d1f2",
           "size": {
             "height": 104,
             "width": 234
@@ -22,8 +23,8 @@
         },
         {
           "location": {
-            "x": 867.50020613145125,
-            "y": 536.107058627369
+            "x": 577.78713735269434,
+            "y": 25.25927401358787
           },
           "nodeIndex": "f_stock",
           "nodeLineageTag": "bb8973be-f641-46a2-90e3-ba55ca475d6c",
@@ -35,34 +36,37 @@
         },
         {
           "location": {
-            "x": 13.677778586618388,
-            "y": 760.38349102475968
+            "x": 20.928838213877782,
+            "y": 22.225620969752185
           },
           "nodeIndex": "_measures",
+          "nodeLineageTag": "0584e0d9-840f-4644-8798-50c372ad8b61",
           "size": {
-            "height": 118,
+            "height": 246.62571992763682,
             "width": 234
           },
           "zIndex": 3
         },
         {
           "location": {
-            "x": 8.73613450450057,
-            "y": 936.70497204929256
+            "x": 18.887617982663755,
+            "y": 296.91044873267947
           },
           "nodeIndex": "_measures_aux",
+          "nodeLineageTag": "0183e4a7-5838-460d-96cc-7c40acad69fb",
           "size": {
-            "height": 104,
+            "height": 276.87296758274385,
             "width": 234
           },
           "zIndex": 5
         },
         {
           "location": {
-            "x": 1306.8096693661917,
-            "y": 563.88321646871066
+            "x": 356.72878094996241,
+            "y": 347.57799447348407
           },
           "nodeIndex": "d_calendar",
+          "nodeLineageTag": "252192a7-da5c-427c-b82f-e9437604e47e",
           "size": {
             "height": 300,
             "width": 234
@@ -71,7 +75,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 68.955439025810207,
+      "zoomValue": 97.181185901484866,
       "pinKeyFieldsToTop": true,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
