@@ -1,0 +1,83 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 23.203390807230097
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 8.1970757300978221,
+            "y": 1100.2115110141308
+          },
+          "nodeIndex": "RefreshDate",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 867.50020613145125,
+            "y": 536.107058627369
+          },
+          "nodeIndex": "f_stock",
+          "nodeLineageTag": "bb8973be-f641-46a2-90e3-ba55ca475d6c",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 13.677778586618388,
+            "y": 760.38349102475968
+          },
+          "nodeIndex": "_measures",
+          "size": {
+            "height": 118,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 8.73613450450057,
+            "y": 936.70497204929256
+          },
+          "nodeIndex": "_measures_aux",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1306.8096693661917,
+            "y": 563.88321646871066
+          },
+          "nodeIndex": "d_calendar",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 68.955439025810207,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
