@@ -1,0 +1,33 @@
+table RefreshDate
+	lineageTag: 0fa3c0c2-848a-4f93-998b-b4453e93d1f2
+
+	measure 'Last Refresh' = "Last Update at "& SELECTEDVALUE(RefreshDate[Date Last Refresh])
+		lineageTag: 044efc67-cd55-4ac8-aa33-7c2404aece27
+
+	column 'Date Last Refresh'
+		dataType: string
+		isHidden
+		lineageTag: 3ab94ddf-b049-4a5e-b681-e7404915aaf5
+		summarizeBy: none
+		sourceColumn: Date Last Refresh
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RefreshDate-a7084bfa-ea06-40dc-875f-53c8a3aee6a1 = m
+		mode: import
+		queryGroup: Load\Basic
+		source =
+				let
+				    Source = #table(type table[Last Refresh=datetimezone], {{DateTimeZone.LocalNow()}}),
+				    #"Added Custom" = Table.AddColumn(Source, "Date Last Refresh", each DateTimeZone.ToUtc([Last Refresh])+#duration(0,-3,0,0)),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Date Last Refresh", type text}}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Changed Type", "Date Last Refresh", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, true), {"Date Last Refresh.1", "Date Last Refresh.2"}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Split Column by Delimiter", "Date Last Refresh.1", Splitter.SplitTextByEachDelimiter({":"}, QuoteStyle.Csv, true), {"Date Last Refresh", "Date Last Refresh.1.2"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Split Column by Delimiter1",{"Date Last Refresh"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_ResultType = Table
+

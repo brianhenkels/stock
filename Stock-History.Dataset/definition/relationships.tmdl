@@ -1,0 +1,4 @@
+relationship 7a9059a5-6c05-4ade-8fba-286bd655ed6c
+	fromColumn: f_stock.Date
+	toColumn: d_calendar.Date
+

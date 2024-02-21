@@ -1,0 +1,131 @@
+table d_calendar
+	lineageTag: 252192a7-da5c-427c-b82f-e9437604e47e
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: d2a54c01-9104-4144-8aa2-f6fb02abef48
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: ea5a4d3f-f512-46da-935a-6acd46497fbe
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1837b3e5-c202-45d8-8e77-5744c4f44ea9
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: d5ba5fc3-c530-4f19-8742-fb37632084ac
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthSort
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a2920a8-8f7b-4f9d-b8c4-c9f2a39f139e
+		summarizeBy: sum
+		sourceColumn: YearMonthSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: b41f200b-4232-459d-875d-5b277d95650c
+		summarizeBy: sum
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: a4fe4659-0c93-4848-8b01-c87f6ce28975
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week of Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15455733-6ab4-435b-aeba-2c430cbffc45
+		summarizeBy: sum
+		sourceColumn: Week of Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week Name'
+		dataType: string
+		lineageTag: eba6ef06-2dc5-4c8f-a5d6-c1f9f33bcf0a
+		summarizeBy: none
+		sourceColumn: Day of Week Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semester
+		dataType: string
+		lineageTag: 7bf9c9aa-d724-478d-b708-ddfdda7414c3
+		summarizeBy: none
+		sourceColumn: Semester
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: c8d46d45-c14f-4abb-9ddf-d309c0c649be
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Month'
+		dataType: string
+		lineageTag: 7f02c5ee-c46e-4819-8e00-b22ce1fc742b
+		summarizeBy: none
+		sourceColumn: Short Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		dataType: string
+		lineageTag: ff40a3fa-a52a-4c01-ac6e-10fe2e3aaace
+		summarizeBy: none
+		sourceColumn: Year-Month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_calendar = m
+		mode: import
+		queryGroup: Load
+		source =
+				let
+				    // teste
+				    Source = m_calendar
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

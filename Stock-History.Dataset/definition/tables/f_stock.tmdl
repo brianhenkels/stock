@@ -1,0 +1,101 @@
+table f_stock
+	lineageTag: bb8973be-f641-46a2-90e3-ba55ca475d6c
+
+	column symbol
+		dataType: string
+		lineageTag: 6be9e114-0e22-450c-8bd4-38f44d40daac
+		summarizeBy: none
+		sourceColumn: symbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a6c99432-17e0-4644-ab7e-f8f5bc0c1c99
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column '1. open'
+		dataType: double
+		lineageTag: 3f92d534-41a5-4a7e-9fa8-124c1d2a9f56
+		summarizeBy: sum
+		sourceColumn: 1. open
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '2. high'
+		dataType: double
+		lineageTag: 044a11b1-5682-4e0f-ba32-0244a942e6c8
+		summarizeBy: sum
+		sourceColumn: 2. high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '3. low'
+		dataType: double
+		lineageTag: a9b8630b-02d9-4286-931b-db278ffb34a7
+		summarizeBy: sum
+		sourceColumn: 3. low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '4. close'
+		dataType: double
+		lineageTag: f7aa7621-d662-435d-b3ab-c9e5adcf6bb5
+		summarizeBy: sum
+		sourceColumn: 4. close
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '5. volume'
+		dataType: double
+		lineageTag: a2c1c558-9c62-48ac-b22f-1b8cb2d071b5
+		summarizeBy: sum
+		sourceColumn: 5. volume
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column diff
+		dataType: double
+		lineageTag: a746f0ef-f30a-4056-98d2-064bd4c97df7
+		summarizeBy: sum
+		sourceColumn: diff
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column direction
+		dataType: string
+		lineageTag: 8a0b2cfc-96c4-4109-83da-0921e8292a5e
+		summarizeBy: none
+		sourceColumn: direction
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_stock = m
+		mode: import
+		queryGroup: Load
+		source =
+				let
+				    Source = t_symbols_daily
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

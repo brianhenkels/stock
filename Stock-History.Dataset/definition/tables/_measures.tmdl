@@ -1,0 +1,106 @@
+table _measures
+	excludeFromModelRefresh
+	lineageTag: 0584e0d9-840f-4644-8798-50c372ad8b61
+
+	measure entries = COUNT(f_stock[5. volume])
+		formatString: 0
+		lineageTag: bf5ae465-d70b-41d1-84f7-fb31b46fa4f3
+
+	measure close = SUM(f_stock[4. close])
+		lineageTag: e30a5b73-386c-4bfa-945b-b2c2c7a531fe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure mm200 = ```
+			
+			        AVERAGEX(
+			            FILTER(ALL(d_calendar),d_calendar[Date]>=(MAX(d_calendar[Date])-200) && d_calendar[Date] <= MAX(d_calendar[Date])),
+			            [close]
+			        )
+			```
+		lineageTag: 440f4907-04b8-4b0f-96b2-28a66ffc63d7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure volume = sum(f_stock[5. volume])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bfd4cd0b-cd94-4c7c-965e-3435e38689c9
+
+	measure open = SUM(f_stock[1. open])
+		lineageTag: d41b7475-1ff8-4fc9-9eb9-0418851979fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure up = ```
+			
+			    CALCULATE(
+			        if(SELECTEDVALUE(f_stock[direction]) = "Up", [close], BLANK()),
+			        FILTER(d_calendar, DATEADD(d_calendar[Date], 150, DAY) > TODAY())
+			    )
+			```
+		lineageTag: bb6fb5c5-b0c7-403e-addb-1a3e917c5679
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure down = ```
+			
+			    CALCULATE(
+			        if(SELECTEDVALUE(f_stock[direction]) = "Down", [close], BLANK()),
+			        FILTER(d_calendar, DATEADD(d_calendar[Date], 150, DAY) > TODAY())
+			    )
+			```
+		lineageTag: 815a0845-a08d-4fc1-b84e-d238436df482
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure mm50 = ```
+			
+			        AVERAGEX(
+			            FILTER(ALL(d_calendar),d_calendar[Date]>=(MAX(d_calendar[Date])-50) && d_calendar[Date] <= MAX(d_calendar[Date])),
+			            [close]
+			        )
+			```
+		lineageTag: 2a18926d-9e0d-4e96-a2bc-1c7335d47494
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure mm9 = ```
+			
+			        AVERAGEX(
+			            FILTER(ALL(d_calendar),d_calendar[Date]>=(MAX(d_calendar[Date])-9) && d_calendar[Date] <= MAX(d_calendar[Date])),
+			            [close]
+			        )
+			```
+		lineageTag: e4552213-4033-49a6-893a-df283efd38cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column hidden
+		dataType: string
+		isHidden
+		lineageTag: de7aec32-31b1-40c6-aae3-4fe9d37f7afb
+		summarizeBy: none
+		sourceColumn: hidden
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measures-0e40090b-99a1-4151-b253-4201f0c31e68 = m
+		mode: import
+		queryGroup: Load\Basic
+		source = ```
+				let
+				    Source = m_measures    
+				in
+				    Source
+				```
+
+	annotation PBI_Id = b10c9a66-9af0-4caf-949c-bd8111f2f4a8
+
+	annotation LinkedQueryName = Medidas
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

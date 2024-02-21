@@ -1,0 +1,48 @@
+table _measures_aux
+	excludeFromModelRefresh
+	lineageTag: 0183e4a7-5838-460d-96cc-7c40acad69fb
+
+	measure 'Selected Period Months' = DATEDIFF([Selected Date Min],[Selected Date Max]+1,MONTH)
+		formatString: 0
+		lineageTag: d599c357-33f5-463e-a431-621bcdc5828c
+
+	measure 'Selected Period Days' = DATEDIFF([Selected Date Min],[Selected Date Max]+1,DAY)
+		formatString: 0
+		lineageTag: 85341826-0cc1-4850-96d7-baa5bc43149a
+
+	measure 'Selected Date Min' = MIN(d_calendar[Date])
+		formatString: General Date
+		lineageTag: 5aa5f6d0-1e02-4fcd-ba77-7655db26b34d
+
+	measure 'Selected Date Max' = MAX(d_calendar[Date])
+		formatString: General Date
+		lineageTag: 982d8333-fb57-4781-be30-f65559b9dfc3
+
+	measure 'Período Atual' = FORMAT([Selected Date Min], "dd/mm/YYYY") & " à " & FORMAT([Selected Date Max], "dd/mm/YYYY")
+		lineageTag: 9427d7bd-7af7-4bff-99d4-26cd8f4a62e2
+
+	column hidden
+		dataType: string
+		isHidden
+		lineageTag: 8b078439-66a3-4488-bc9e-f6b01d6bc103
+		summarizeBy: none
+		sourceColumn: hidden
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measures_aux-07a6a2a8-d7fc-42bb-a7b1-aea6526eaf69 = m
+		mode: import
+		queryGroup: Load\Basic
+		source = ```
+				let
+				    Source = m_measures    
+				in
+				    Source
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
