@@ -97,11 +97,10 @@ expression time_daily_full_sample_IBM =
 
 expression m_symbols =
 		let
-		    //Source = #table({"Hidden"},{})
 		    Source = #table(type table [symbol=text],
 		        {
 		            {"IBM"},
-		    	//    {"PETR3.SAO"},
+		        //    {"PETR3.SAO"},
 		            {"PETR4.SAO"},
 		            {"AZUL"},
 		        //    {"AZUL4.SAO"},
@@ -109,7 +108,6 @@ expression m_symbols =
 		        //    {"KLBN4.SAO"},
 		            {"KLBN11.SAO"}
 		        }
-		
 		    )
 		in
 		    Source

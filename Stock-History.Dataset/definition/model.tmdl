@@ -6,28 +6,32 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-/// Grupo com as origens de conexões, sem transformações.
+/// / Group with source connections, without transformations. 
+/// / Grupo com as origens de conexões, sem transformações.
 queryGroup Extract
 
 	annotation PBI_QueryGroupOrder = 1
 
+/// Group with only transformations, without connection or loaded queries.
 queryGroup Transform
 
 	annotation PBI_QueryGroupOrder = 2
 
-/// Grupo com as tabelas que serão carregadas para o relatório.
+/// / Grupo com as tabelas que serão carregadas para o relatório.
+/// / Group with all and only queries that has to be loaded to the report
 queryGroup Load
 
-	annotation PBI_QueryGroupOrder = 4
+	annotation PBI_QueryGroupOrder = 5
 
 queryGroup Load\Basic
 
 	annotation PBI_QueryGroupOrder = 0
 
-/// Validação das transformações - área para testes das consultas para verificar situações
+/// / Validação das transformações - área para testes das consultas para verificar situações
+/// / Transform evaluating - check for issues
 queryGroup Validation
 
-	annotation PBI_QueryGroupOrder = 3
+	annotation PBI_QueryGroupOrder = 4
 
 queryGroup 'Extract\API Parm'
 
